@@ -1,0 +1,213 @@
+name: Auto Changelog
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [master, main]
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  changelog:
+    name: Generate changelog entry
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate changelog entry and notify
+        uses: actions/github-script@v7
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          script: |
+            const fs = require('fs');
+            const https = require('https');
+            const pr = context.payload.pull_request;
+
+            // Get changed files
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+              per_page: 300,
+            });
+
+            // Analyse changes
+            const changes = {
+              cities: { added: 0, modified: 0, removed: 0 },
+              states: { added: 0, modified: 0, removed: 0 },
+              countries: { added: 0, modified: 0, removed: 0 },
+            };
+
+            const affectedCountries = new Set();
+            const affectedStates = new Set();
+
+            for (const file of files) {
+              if (!file.filename.endsWith('.json')) continue;
+
+              let entityType = null;
+              if (file.filename.toLowerCase().includes('cities')) entityType = 'cities';
+              else if (file.filename.toLowerCase().includes('states')) entityType = 'states';
+              else if (file.filename.toLowerCase().includes('countries')) entityType = 'countries';
+
+              if (!entityType) continue;
+
+              // Count based on file status
+              if (file.status === 'added') {
+                // Try to count records in the file
+                try {
+                  const { data: content } = await github.rest.repos.getContent({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    path: file.filename,
+                    ref: pr.merge_commit_sha,
+                  });
+                  const decoded = Buffer.from(content.content, 'base64').toString('utf8');
+                  const parsed = JSON.parse(decoded);
+                  const records = Array.isArray(parsed) ? parsed : [parsed];
+                  changes[entityType].added += records.length;
+
+                  // Extract country/state info
+                  for (const r of records) {
+                    if (r.country_name) affectedCountries.add(r.country_name);
+                    else if (r.country_code) affectedCountries.add(r.country_code);
+                    if (r.state_name) affectedStates.add(r.state_name);
+                  }
+                } catch {
+                  changes[entityType].added += 1;
+                }
+              } else if (file.status === 'modified') {
+                changes[entityType].modified += 1;
+              } else if (file.status === 'removed') {
+                changes[entityType].removed += 1;
+              }
+            }
+
+            // Build changelog entry
+            const date = new Date().toISOString().split('T')[0];
+            const parts = [];
+
+            for (const [entity, counts] of Object.entries(changes)) {
+              if (counts.added > 0) parts.push(`Added ${counts.added} ${entity}`);
+              if (counts.modified > 0) parts.push(`Updated ${entity}`);
+              if (counts.removed > 0) parts.push(`Removed ${counts.removed} ${entity}`);
+            }
+
+            if (parts.length === 0) {
+              core.info('No data changes detected. Skipping changelog.');
+              return;
+            }
+
+            let summary = parts.join(', ');
+            const locations = [];
+            if (affectedStates.size > 0) locations.push(...affectedStates);
+            if (affectedCountries.size > 0) locations.push(...affectedCountries);
+            if (locations.length > 0) {
+              summary += ` in ${[...new Set(locations)].slice(0, 5).join(', ')}`;
+            }
+
+            const entry = `- **${date}** - PR [#${pr.number}](${pr.html_url}): ${summary} (by @${pr.user.login})\n`;
+
+            // Append to CHANGELOG.md
+            const changelogPath = 'CHANGELOG.md';
+            let existingContent = '';
+
+            if (fs.existsSync(changelogPath)) {
+              existingContent = fs.readFileSync(changelogPath, 'utf8');
+            }
+
+            // Check if there's a header for this month
+            const monthHeader = `## ${date.substring(0, 7)}`;
+            let newContent;
+
+            if (existingContent.includes(monthHeader)) {
+              // Insert after the month header using regex to match only at line start
+              const headerRegex = new RegExp(`^(${monthHeader.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\n`, 'm');
+              newContent = existingContent.replace(
+                headerRegex,
+                `$1\n${entry}`
+              );
+            } else {
+              // Add new month section at the top (after main header if present)
+              const mainHeaderEnd = existingContent.indexOf('\n\n');
+              if (mainHeaderEnd > -1 && existingContent.startsWith('# ')) {
+                newContent =
+                  existingContent.substring(0, mainHeaderEnd + 2) +
+                  monthHeader + '\n' + entry + '\n' +
+                  existingContent.substring(mainHeaderEnd + 2);
+              } else {
+                newContent = `# Changelog\n\n${monthHeader}\n${entry}\n${existingContent}`;
+              }
+            }
+
+            fs.writeFileSync(changelogPath, newContent);
+
+            // Commit the changelog update
+            const { execSync } = require('child_process');
+            try {
+              execSync('git config user.name "github-actions[bot]"');
+              execSync('git config user.email "41898282+github-actions[bot]@users.noreply.github.com"');
+              execSync(`git add ${changelogPath}`);
+              execSync(`git commit -m "docs: update changelog for PR #${pr.number}"`);
+              // Pull with rebase to handle concurrent merges, then push
+              execSync('git pull --rebase origin ' + (pr.base.ref || 'master'));
+              execSync('git push');
+              core.info(`Changelog updated: ${entry.trim()}`);
+            } catch (err) {
+              core.warning(`Could not commit changelog: ${err.message}`);
+            }
+
+            // Slack notification
+            const webhookUrl = process.env.SLACK_WEBHOOK_URL;
+            if (webhookUrl) {
+              const payload = {
+                attachments: [{
+                  color: '#36A64F',
+                  blocks: [
+                    {
+                      type: 'header',
+                      text: { type: 'plain_text', text: ':white_check_mark: PR Merged', emoji: true },
+                    },
+                    {
+                      type: 'section',
+                      fields: [
+                        { type: 'mrkdwn', text: `*PR:* <${pr.html_url}|#${pr.number}> ${pr.title}` },
+                        { type: 'mrkdwn', text: `*Author:* @${pr.user.login}` },
+                      ],
+                    },
+                    {
+                      type: 'section',
+                      text: { type: 'mrkdwn', text: summary },
+                    },
+                  ],
+                }],
+              };
+
+              const url = new URL(webhookUrl);
+              const data = JSON.stringify(payload);
+              await new Promise((resolve) => {
+                const req = https.request({
+                  hostname: url.hostname,
+                  path: url.pathname,
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(data) },
+                }, (res) => {
+                  if (res.statusCode !== 200) core.warning(`Slack responded with ${res.statusCode}`);
+                  resolve();
+                });
+                req.on('error', (err) => {
+                  core.warning(`Slack error: ${err.message}`);
+                  resolve();
+                });
+                req.write(data);
+                req.end();
+              });
+            }

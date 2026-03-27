@@ -1,4 +1,4 @@
-name: 🐛 Bug / Data Issue
+name: Bug / Data Issue
 description: Report a bug or incorrect data
 title: "[Bug]: "
 labels: ["bug", "needs-triage"]
@@ -9,14 +9,19 @@ body:
         Thanks for reporting! Use our [CSC Update Tool](https://manager.countrystatecity.in/) for quick data corrections.
 
   - type: dropdown
-    id: issue-type
+    id: area
     attributes:
       label: Issue Type
+      description: Which part of the CSC ecosystem is affected?
       options:
         - Incorrect Data (wrong information)
         - Missing Data (missing city/state/country)
         - Duplicate Entry
-        - API/Export Issue
+        - Database (JSON/SQL data files)
+        - API (countrystatecity.in)
+        - Export Tool
+        - NPM Package
+        - Documentation
         - Other
     validations:
       required: true
@@ -32,16 +37,18 @@ body:
   - type: textarea
     id: description
     attributes:
-      label: What's wrong?
-      placeholder: Describe the issue clearly
+      label: Bug Description
+      description: A clear description of the bug
+      placeholder: "Describe what happened and what you expected to happen"
     validations:
       required: true
 
   - type: textarea
     id: expected
     attributes:
-      label: What should it be?
-      placeholder: Expected/correct value or behavior
+      label: Expected Behaviour
+      description: What should the correct value or behaviour be?
+      placeholder: "Expected/correct value or behaviour"
     validations:
       required: true
 
@@ -50,5 +57,13 @@ body:
     attributes:
       label: Source (optional)
       placeholder: "Link to WikiData, Wikipedia, or official source"
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any other relevant information (screenshots, error messages, environment details)
     validations:
       required: false
