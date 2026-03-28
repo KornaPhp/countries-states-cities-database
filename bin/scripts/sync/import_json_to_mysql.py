@@ -345,39 +345,26 @@ class JSONToMySQLImporter:
         self.cursor.execute(f"TRUNCATE TABLE cities")
         self.cursor.execute(f"SET FOREIGN_KEY_CHECKS=1")
 
-        # Prepare insert statement
-        placeholders = ', '.join(['%s'] * len(insert_columns))
-        column_names = ', '.join([f'`{c}`' for c in insert_columns])
-        insert_sql = f"INSERT INTO cities ({column_names}) VALUES ({placeholders})"
+        # Split records: those with explicit IDs first, then those without
+        records_with_id = [r for r in all_cities if r.get('id') is not None]
+        records_without_id = [r for r in all_cities if r.get('id') is None]
 
-        print(f"  📝 Inserting columns: {', '.join(insert_columns)}")
-
-        # Batch insert
-        batch_size = 1000
         inserted = 0
 
-        for i in range(0, len(all_cities), batch_size):
-            batch = all_cities[i:i + batch_size]
-            values = []
+        # Insert records with explicit IDs first
+        if records_with_id:
+            print(f"  📝 Inserting {len(records_with_id):,} records with explicit IDs...")
+            print(f"     Columns: {', '.join(insert_columns)}")
+            inserted += self._batch_insert_records('cities', records_with_id, insert_columns)
 
-            for record in batch:
-                row = []
-                for col in insert_columns:
-                    value = record.get(col)
-                    row.append(self.prepare_value(value, col))
-                values.append(tuple(row))
+        # Insert records without IDs (AUTO_INCREMENT assigns them)
+        if records_without_id:
+            insert_columns_no_id = [c for c in insert_columns if c != 'id']
+            print(f"  📝 Inserting {len(records_without_id):,} records without IDs (auto-increment)...")
+            print(f"     Columns: {', '.join(insert_columns_no_id)}")
+            inserted += self._batch_insert_records('cities', records_without_id, insert_columns_no_id)
 
-            try:
-                self.cursor.executemany(insert_sql, values)
-                self.conn.commit()
-                inserted += len(values)
-                print(f"  ✓ Inserted {inserted:,} / {len(all_cities):,} records...", end='\r')
-            except mysql.connector.Error as e:
-                print(f"\n  ❌ Insert failed at record {inserted}: {e}")
-                self.conn.rollback()
-                raise
-
-        print(f"\n  ✓ Imported {inserted:,} cities from {len(city_files)} country files")
+        print(f"  ✓ Imported {inserted:,} cities from {len(city_files)} country files")
         return inserted
 
     def import_regions(self):
