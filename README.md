@@ -43,6 +43,7 @@ Easily access all the tools and services in the Countries States Cities platform
 | **API Service**   | Programmatic access to countries, states, cities | [countrystatecity.in](https://countrystatecity.in/)           |
 | **Export Tool**   | Export data in multiple formats                  | [export.countrystatecity.in](https://export.countrystatecity.in/) |
 | **Update Tool**   | Submit and track data change requests            | [manager.countrystatecity.in](https://manager.countrystatecity.in/) |
+| **CLI Tool**       | Command-line interface for querying CSC data      | [cli.countrystatecity.in](https://cli.countrystatecity.in/) |
 | **OpenAPI Spec**   | Swagger/OpenAPI specification for the REST API    | [GitHub](https://github.com/dr5hn/csc-swagger) |
 | **API Playground** | Interactive Swagger UI to test API endpoints      | [playground.countrystatecity.in](https://playground.countrystatecity.in/) |
 | **Status Page**   | Real-time service uptime and incidents           | [status.countrystatecity.in](https://status.countrystatecity.in/) |
@@ -87,6 +88,18 @@ us_states = State.get_states_of_country('US')
 ```
 
 📖 [PyPI Package](https://pypi.org/project/countrystatecity/) · 📂 [GitHub](https://github.com/dr5hn/countrystatecity-pypi)
+
+### Browser Package
+
+Lightweight browser-native package with CDN lazy loading:
+
+```bash
+npm install @countrystatecity/countries-browser
+```
+
+**Features:** jsDelivr CDN, lazy loading, no bundled data, browser-optimized
+
+📂 [GitHub](https://github.com/dr5hn/countrystatecity-countries-browser)
 
 ### Timezones Package
 
