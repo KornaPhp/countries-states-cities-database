@@ -43,6 +43,7 @@ Easily access all the tools and services in the Countries States Cities platform
 | **API Service**   | Programmatic access to countries, states, cities | [countrystatecity.in](https://countrystatecity.in/)           |
 | **Export Tool**   | Export data in multiple formats                  | [export.countrystatecity.in](https://export.countrystatecity.in/) |
 | **Update Tool**   | Submit and track data change requests            | [manager.countrystatecity.in](https://manager.countrystatecity.in/) |
+| **API Playground** | Interactive Swagger UI to test API endpoints      | [playground.countrystatecity.in](https://playground.countrystatecity.in/) |
 | **Status Page**   | Real-time service uptime and incidents           | [status.countrystatecity.in](https://status.countrystatecity.in/) |
 
 ## 🔄 Choose Your Integration Method
