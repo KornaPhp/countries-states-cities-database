@@ -404,18 +404,25 @@ jobs:
             const fs = require('fs');
             const path = require('path');
 
-            // Determine next version by checking existing releases
-            let major = 0, minor = 0, patch = 0;
+            // Determine next version from all releases (not just latest)
+            let major = 0, minor = 0;
             try {
-              const { data: latest } = await github.rest.repos.getLatestRelease({
+              const { data: releases } = await github.rest.repos.listReleases({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
+                per_page: 20,
               });
-              const match = latest.tag_name.match(/^v?(\d+)\.(\d+)\.(\d+)$/);
-              if (match) {
-                major = parseInt(match[1]);
-                minor = parseInt(match[2]);
-                patch = parseInt(match[3]);
+              for (const rel of releases) {
+                // Match v3.1, v3.1.0, v10.2, etc.
+                const match = rel.tag_name.match(/^v?(\d+)\.(\d+)/);
+                if (match) {
+                  const relMajor = parseInt(match[1]);
+                  const relMinor = parseInt(match[2]);
+                  if (relMajor > major || (relMajor === major && relMinor > minor)) {
+                    major = relMajor;
+                    minor = relMinor;
+                  }
+                }
               }
             } catch {
               // No existing releases
@@ -423,8 +430,7 @@ jobs:
 
             // Bump minor version for each export
             minor++;
-            patch = 0;
-            const version = `${major}.${minor}.${patch}`;
+            const version = `${major}.${minor}`;
             const tag = `v${version}`;
 
             core.info(`Creating release ${tag}...`);
