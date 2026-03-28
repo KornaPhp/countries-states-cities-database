@@ -84,8 +84,8 @@ class ExportJson extends Command
                     $countriesArray[$m]['area_sq_km'] = $row['area_sq_km'] !== null ? (int)$row['area_sq_km'] : null;
                     $countriesArray[$m]['postal_code_format'] = $row['postal_code_format'];
                     $countriesArray[$m]['postal_code_regex'] = $row['postal_code_regex'];
-                    $countriesArray[$m]['timezones'] = json_decode($row['timezones'], true);
-                    $countriesArray[$m]['translations'] = json_decode($row['translations'], true);
+                    $countriesArray[$m]['timezones'] = $row['timezones'] !== null ? json_decode($row['timezones'], true) : null;
+                    $countriesArray[$m]['translations'] = $row['translations'] !== null ? json_decode($row['translations'], true) : null;
                     $countriesArray[$m]['latitude'] = $row['latitude'];
                     $countriesArray[$m]['longitude'] = $row['longitude'];
                     $countriesArray[$m]['emoji'] = $row['emoji'];
@@ -160,7 +160,7 @@ class ExportJson extends Command
                         $statesArray[$i]['latitude'] = $state['latitude'];
                         $statesArray[$i]['longitude'] = $state['longitude'];
                         $statesArray[$i]['timezone'] = $state['timezone'];
-                        $statesArray[$i]['translations'] = json_decode($state['translations'], true);
+                        $statesArray[$i]['translations'] = $state['translations'] !== null ? json_decode($state['translations'], true) : null;
                         $statesArray[$i]['wikiDataId'] = $state['wikiDataId'];
                         $statesArray[$i]['population'] = $state['population'] !== null ? (int)$state['population'] : null;
 
@@ -206,7 +206,7 @@ class ExportJson extends Command
                                 $citiesArray[$j]['parent_id'] = $city['parent_id'];
                                 $citiesArray[$j]['population'] = $city['population'] !== null ? (int)$city['population'] : null;
                                 $citiesArray[$j]['timezone'] = $city['timezone'];
-                                $citiesArray[$j]['translations'] = json_decode($city['translations'], true);
+                                $citiesArray[$j]['translations'] = $city['translations'] !== null ? json_decode($city['translations'], true) : null;
                                 $citiesArray[$j]['wikiDataId'] = $city['wikiDataId'];
 
                                 // For State City Array
@@ -259,7 +259,7 @@ class ExportJson extends Command
                     // Pushing it into Fresh Array
                     $regionsArray[$r]['id'] = (int)$row['id'];
                     $regionsArray[$r]['name'] = $row['name'];
-                    $regionsArray[$r]['translations'] = json_decode($row['translations'], true);
+                    $regionsArray[$r]['translations'] = $row['translations'] !== null ? json_decode($row['translations'], true) : null;
                     $regionsArray[$r]['wikiDataId'] = $row['wikiDataId'];
 
                     $r++;
@@ -275,7 +275,7 @@ class ExportJson extends Command
                     $subregionsArray[$s]['id'] = (int)$row['id'];
                     $subregionsArray[$s]['name'] = $row['name'];
                     $subregionsArray[$s]['region_id'] = (int)$row['region_id'];
-                    $subregionsArray[$s]['translations'] = json_decode($row['translations'], true);
+                    $subregionsArray[$s]['translations'] = $row['translations'] !== null ? json_decode($row['translations'], true) : null;
                     $subregionsArray[$s]['wikiDataId'] = $row['wikiDataId'];
                     $s++;
                 }
