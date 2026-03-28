@@ -21,7 +21,7 @@ All Countries, States & Cities are Covered & Populated with Different Combinatio
 
 Save hundreds of hours collecting and maintaining geographical data. Get accurate, structured, ready-to-use data right now.
 
-> **📦 Clone Tip:** Use `git clone --depth 1` for faster cloning (shallow clone ~1.5GB vs ~9GB full history)
+> **📦 Clone Tip:** Use `git clone --depth 1` for faster cloning. Large exports (.gz) are on [GitHub Releases](https://github.com/dr5hn/countries-states-cities-database/releases), not in git.
 
 ## Table of Contents
 - [CSC Platform Ecosystem](#-csc-platform-ecosystem) • [Integration Methods](#-choose-your-integration-method) • [Official Packages](#-official-packages)
@@ -84,7 +84,7 @@ from countrystatecity import Country, State, City
 us_states = State.get_states_of_country('US')
 ```
 
-📖 [PyPI Package](https://pypi.org/org/countrystatecity/) · 📂 [GitHub](https://github.com/dr5hn/countrystatecity-pypi)
+📖 [PyPI Package](https://pypi.org/project/countrystatecity/) · 📂 [GitHub](https://github.com/dr5hn/countrystatecity-pypi)
 
 ### Timezones Package
 
@@ -148,6 +148,19 @@ npm install @countrystatecity/timezones
 **Legend:** ✅ = Available | NA = Not applicable for this format
 
 
+## Downloads
+
+Large export files are distributed via [GitHub Releases](https://github.com/dr5hn/countries-states-cities-database/releases) (not committed to git) to keep the repository lightweight.
+
+**Download the latest exports:**
+```bash
+# Example: download cities JSON
+curl -LO https://github.com/dr5hn/countries-states-cities-database/releases/latest/download/json-cities.json.gz
+gunzip json-cities.json.gz
+```
+
+Small files (countries, states, regions, subregions, schema) remain in the repo and can be accessed directly via `raw.githubusercontent.com`.
+
 ## Demo
 
 https://dr5hn.github.io/countries-states-cities-database/
@@ -175,17 +188,18 @@ Last Updated On: March 28, 2026
 
 **For Maintainers:** MySQL as single source of truth, dynamic schema detection, one command to regenerate all formats
 
-**For Users:** All formats guaranteed in sync, compressed downloads available (.gz)
+**For Users:** All formats guaranteed in sync, compressed downloads on [GitHub Releases](https://github.com/dr5hn/countries-states-cities-database/releases)
 
 ## Import MongoDB
 
-How to import MongoDB database?
+Download the MongoDB dump from [GitHub Releases](https://github.com/dr5hn/countries-states-cities-database/releases) and import:
 
 ```bash
-# First extract the tar.gz file
-tar -xzvf world-mongodb-dump.tar.gz
+# Download from latest release
+curl -LO https://github.com/dr5hn/countries-states-cities-database/releases/latest/download/mongodb-world-mongodb-dump.tar.gz
 
-# Then restore the MongoDB dump
+# Extract and restore
+tar -xzvf mongodb-world-mongodb-dump.tar.gz
 mongorestore --host localhost:27017 --db world mongodb-dump/world
 ```
 
