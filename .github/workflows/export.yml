@@ -403,7 +403,6 @@ jobs:
           script: |
             const fs = require('fs');
             const path = require('path');
-            const glob = require('@actions/glob');
 
             const tag = `export-${new Date().toISOString().split('T')[0].replace(/-/g, '')}`;
 
