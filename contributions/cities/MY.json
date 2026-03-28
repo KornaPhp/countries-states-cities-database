@@ -7380,7 +7380,6 @@
     "wikiDataId": "Q7258228"
   },
   {
-    "id": 160557,
     "name": "Ampang Jaya",
     "state_id": 1944,
     "state_code": "10",
@@ -7410,13 +7409,9 @@
       "vi": "Ampang Jaya",
       "zh": "安邦 (雪兰莪州)"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160558,
     "name": "Assam Jawa",
     "state_id": 1944,
     "state_code": "10",
@@ -7433,13 +7428,9 @@
     "translations": {
       "zh": "亚参爪哇"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160559,
     "name": "Bandar Baru Selayang",
     "state_id": 1944,
     "state_code": "10",
@@ -7459,13 +7450,9 @@
       "pl": "Selayang Baru",
       "vi": "Selayang Baru"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160560,
     "name": "Bandar Kundang",
     "state_id": 1944,
     "state_code": "10",
@@ -7480,13 +7467,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160561,
     "name": "Bangi",
     "state_id": 1944,
     "state_code": "10",
@@ -7505,13 +7488,9 @@
       "fr": "Bangi",
       "pt": "Bangi"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160562,
     "name": "Batang Kali",
     "state_id": 1944,
     "state_code": "10",
@@ -7530,13 +7509,9 @@
       "pt": "Batang Kali",
       "zh": "峇冬加里"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160563,
     "name": "Batu Caves",
     "state_id": 1944,
     "state_code": "10",
@@ -7568,13 +7543,9 @@
       "vi": "Động Batu",
       "zh": "黑風洞"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160564,
     "name": "Beranang",
     "state_id": 1944,
     "state_code": "10",
@@ -7591,13 +7562,9 @@
     "translations": {
       "nl": "Beranang"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160565,
     "name": "Bestari Jaya",
     "state_id": 1944,
     "state_code": "10",
@@ -7615,13 +7582,9 @@
       "nl": "Bestari Jaya",
       "zh": "八丁燕带"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160566,
     "name": "Broga",
     "state_id": 1944,
     "state_code": "10",
@@ -7640,13 +7603,9 @@
       "it": "Broga",
       "zh": "武来岸"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160567,
     "name": "Bukit Rotan",
     "state_id": 1944,
     "state_code": "10",
@@ -7661,13 +7620,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160568,
     "name": "Cyberjaya",
     "state_id": 1944,
     "state_code": "10",
@@ -7695,13 +7650,9 @@
       "tr": "Cyberjaya",
       "zh": "赛城"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160569,
     "name": "Gombak",
     "state_id": 1944,
     "state_code": "10",
@@ -7724,13 +7675,9 @@
       "vi": "Gombak",
       "zh": "鹅唛县"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160570,
     "name": "Jenjarom",
     "state_id": 1944,
     "state_code": "10",
@@ -7748,13 +7695,9 @@
       "nl": "Jenjarom",
       "zh": "仁嘉隆"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160571,
     "name": "Kajang",
     "state_id": 1944,
     "state_code": "10",
@@ -7780,13 +7723,9 @@
       "vi": "Kajang",
       "zh": "加影"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160572,
     "name": "Kampung Kuantan",
     "state_id": 1944,
     "state_code": "10",
@@ -7801,13 +7740,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160573,
     "name": "Kapar",
     "state_id": 1944,
     "state_code": "10",
@@ -7822,13 +7757,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160574,
     "name": "Kuala Kubu Bharu",
     "state_id": 1944,
     "state_code": "10",
@@ -7847,13 +7778,9 @@
       "nl": "Kuala Kubu Baru",
       "zh": "新古毛"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160575,
     "name": "Kuala Sungai Buloh",
     "state_id": 1944,
     "state_code": "10",
@@ -7868,13 +7795,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 160576,
     "name": "Lagong",
     "state_id": 1944,
     "state_code": "10",
@@ -7889,13 +7812,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161557,
     "name": "Meru",
     "state_id": 1944,
     "state_code": "10",
@@ -7922,13 +7841,9 @@
       "uk": "Меру",
       "zh": "梅魯"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161558,
     "name": "Mutiara Damansara",
     "state_id": 1944,
     "state_code": "10",
@@ -7945,13 +7860,9 @@
     "translations": {
       "zh": "珍珠白沙羅"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161559,
     "name": "Padang Jawa",
     "state_id": 1944,
     "state_code": "10",
@@ -7966,13 +7877,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161560,
     "name": "Pandamaran",
     "state_id": 1944,
     "state_code": "10",
@@ -7989,13 +7896,9 @@
     "translations": {
       "zh": "班达马兰"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161561,
     "name": "Paya Jaras",
     "state_id": 1944,
     "state_code": "10",
@@ -8012,13 +7915,9 @@
     "translations": {
       "id": "Paya Jaras"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161562,
     "name": "Port Klang",
     "state_id": 1944,
     "state_code": "10",
@@ -8047,13 +7946,9 @@
       "uk": "Порт Кланг",
       "zh": "巴生港"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161563,
     "name": "Sabak",
     "state_id": 1944,
     "state_code": "10",
@@ -8068,13 +7963,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161564,
     "name": "Salak Tinggi",
     "state_id": 1944,
     "state_code": "10",
@@ -8091,13 +7982,9 @@
     "translations": {
       "nl": "Salak Tinggi"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161565,
     "name": "Sekinchan",
     "state_id": 1944,
     "state_code": "10",
@@ -8117,13 +8004,9 @@
       "nl": "Sekinchan",
       "zh": "适耕庄"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161566,
     "name": "Selayang",
     "state_id": 1944,
     "state_code": "10",
@@ -8140,13 +8023,9 @@
     "translations": {
       "zh": "士拉央"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161567,
     "name": "Sepang",
     "state_id": 1944,
     "state_code": "10",
@@ -8165,13 +8044,9 @@
       "ko": "세팡 (타운)",
       "zh": "雪邦区"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161568,
     "name": "Seri Kembangan",
     "state_id": 1944,
     "state_code": "10",
@@ -8188,13 +8063,9 @@
     "translations": {
       "zh": "沙登"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161569,
     "name": "Sungai Air Tawar",
     "state_id": 1944,
     "state_code": "10",
@@ -8209,13 +8080,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161570,
     "name": "Sungai Buaya",
     "state_id": 1944,
     "state_code": "10",
@@ -8230,13 +8097,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161571,
     "name": "Sungai Burong",
     "state_id": 1944,
     "state_code": "10",
@@ -8251,13 +8114,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161572,
     "name": "Sungai Choh",
     "state_id": 1944,
     "state_code": "10",
@@ -8272,13 +8131,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161573,
     "name": "Sungai Pelek",
     "state_id": 1944,
     "state_code": "10",
@@ -8295,13 +8150,9 @@
     "translations": {
       "nl": "Sungai Pelek"
     },
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161574,
     "name": "Sungai Pelong",
     "state_id": 1944,
     "state_code": "10",
@@ -8316,13 +8167,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161575,
     "name": "Sungai Tengi",
     "state_id": 1944,
     "state_code": "10",
@@ -8337,13 +8184,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161576,
     "name": "Taman Melawati",
     "state_id": 1944,
     "state_code": "10",
@@ -8358,13 +8201,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161577,
     "name": "Taman Tasik Semenyih",
     "state_id": 1944,
     "state_code": "10",
@@ -8379,13 +8218,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161578,
     "name": "Teluk Datok",
     "state_id": 1944,
     "state_code": "10",
@@ -8400,13 +8235,9 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   },
   {
-    "id": 161579,
     "name": "Ulu Yam",
     "state_id": 1944,
     "state_code": "10",
@@ -8421,9 +8252,6 @@
     "population": null,
     "timezone": "Asia/Kuala_Lumpur",
     "translations": null,
-    "created_at": "2026-01-11T07:20:32",
-    "updated_at": "2026-01-11T07:21:02",
-    "flag": 1,
     "wikiDataId": null
   }
 ]
