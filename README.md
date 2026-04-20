@@ -42,7 +42,7 @@ Easily access all the tools and services in the Countries States Cities platform
 | **Demo Database** | Browse the full database online                  | [demo.countrystatecity.in](https://demo.countrystatecity.in/) |
 | **API Service**   | Programmatic access to countries, states, cities | [countrystatecity.in](https://countrystatecity.in/)           |
 | **Export Tool**   | Export data in multiple formats                  | [export.countrystatecity.in](https://export.countrystatecity.in/) |
-| **Update Tool**   | Submit and track data change requests            | [manager.countrystatecity.in](https://manager.countrystatecity.in/) |
+| **Community Manager** | Submit and track data change requests            | [manager.countrystatecity.in](https://manager.countrystatecity.in/) |
 | **CLI Tool**       | Command-line interface for querying CSC data      | [cli.countrystatecity.in](https://cli.countrystatecity.in/) |
 | **OpenAPI Spec**   | Swagger/OpenAPI specification for the REST API    | [GitHub](https://github.com/dr5hn/csc-swagger) |
 | **API Playground** | Interactive Swagger UI to test API endpoints      | [playground.countrystatecity.in](https://playground.countrystatecity.in/) |
@@ -77,17 +77,17 @@ const usStates = State.getStatesOfCountry('US');
 ### Python (PyPI)
 
 ```bash
-pip install countrystatecity
+pip install countrystatecity-countries
 ```
 
 **Features:** Easy-to-use Python interface, works with Django/Flask, offline data access
 
 ```python
-from countrystatecity import Country, State, City
+from countrystatecity_countries import Country, State, City
 us_states = State.get_states_of_country('US')
 ```
 
-📖 [PyPI Package](https://pypi.org/project/countrystatecity/) · 📂 [GitHub](https://github.com/dr5hn/countrystatecity-pypi)
+📖 [PyPI Package](https://pypi.org/project/countrystatecity-countries/) · 📂 [GitHub](https://github.com/dr5hn/countrystatecity-pypi)
 
 ### Browser Package
 
@@ -292,7 +292,7 @@ https://github.com/dr5hn/countries-states-cities-database | ODbL v1.0
 
 ## Contributing
 
-### 🛠️ Easy Way: [CSC Update Tool](https://manager.countrystatecity.in/)
+### 🛠️ Easy Way: [Community Manager](https://manager.countrystatecity.in/)
 Use our web tool to browse, search, and submit data change requests with a streamlined review process.
 
 [![banner](.github/images/update-tool.png)](https://manager.countrystatecity.in/)

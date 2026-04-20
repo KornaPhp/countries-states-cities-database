@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is the **Countries States Cities Database** - a comprehensive geographic database containing 250+ countries, 5,000+ states, and 150,000+ cities. It is open source under ODbL-1.0 and serves 40,000+ developers with 1B+ monthly API requests.
+This is the **Countries States Cities Database** - a comprehensive geographic database containing 250+ countries, 5,000+ states, and 150,000+ cities. It is open source under ODbL-1.0 and serves 40,000+ developers with 50M+ monthly API requests.
 
 ## Repository Structure
 
