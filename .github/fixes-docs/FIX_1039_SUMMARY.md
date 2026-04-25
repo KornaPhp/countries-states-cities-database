@@ -1,6 +1,6 @@
 # FIX #1039 — Backfill country `postal_code_format` / `postal_code_regex`
 
-**Issue:** [#1039 — Can we add a postcode for this?](https://github.com/dr5hn/the-countries-states-cities-database/issues/1039)
+**Issue:** [#1039 — Can we add a postcode for this?](https://github.com/dr5hn/countries-states-cities-database/issues/1039)
 **Scope:** Country-level postal *format & regex* metadata only (Tier 1).
 **Date:** 2026-04-25
 
@@ -37,15 +37,15 @@ Format placeholders use the existing convention: `#` = digit, `@` = letter, lite
 
 ## Countries Deliberately Left `null` (61)
 
-The remaining 61 countries fall into three groups; **`null` is the correct value** for all of them:
+The remaining 61 countries fall into four groups; **`null` is the correct value** for all of them:
 
 ### A. No postal code system (per Universal Postal Union documentation, ~50 countries)
 Includes most of sub-Saharan Africa (Angola, Benin, Botswana, Burkina Faso, Burundi, Cameroon, Central African Republic, Chad, Comoros, Congo, DRC, Djibouti, Equatorial Guinea, Eritrea, Gabon, Gambia, Ghana, Guinea, Mali, Mauritania, Rwanda, São Tomé, Seychelles, Sierra Leone, South Sudan, Togo, Uganda, Zimbabwe), the Caribbean (Antigua, Aruba, Bahamas, Belize, Bolivia, Curaçao, Dominica, Grenada, Guyana, Jamaica, Saint Kitts and Nevis, Suriname, Sint Maarten), the Gulf (Qatar, Yemen), and most of Oceania (Cook Islands, Fiji, Kiribati, Solomon Islands, Tokelau, Tonga, Tuvalu, Vanuatu).
 
-### B. Disputed/conflict regions where official postal status is unsettled (~5 countries)
+### B. Disputed/conflict regions where official postal status is unsettled (4)
 Western Sahara, Palestinian Territory Occupied, Syria, Libya — `null` reflects the genuine ambiguity.
 
-### C. Uninhabited / no civil postal infrastructure (~3)
+### C. Uninhabited / no civil postal infrastructure (2)
 Antarctica, Bouvet Island.
 
 ### D. Edge cases worth a future PR (~3)
@@ -74,5 +74,6 @@ Each of those requires a sourcing decision (GeoNames CC-BY vs. national postal a
 
 All 12 entries reflect universally-documented national postal systems. No external dataset was imported; values were drawn from common knowledge of:
 - 4- and 5-digit national systems (UPU member countries)
-- British Overseas Territories using `XX####` prefixed codes (KY, VG, VC)
+- British Overseas Territories using `XX####` prefixed codes (KY, VG)
+- Sovereign states using a national prefixed-code convention (VC — `VC####`)
 - Inheritance from parent country systems (TF → France, UM → US)

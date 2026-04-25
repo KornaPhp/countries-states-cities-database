@@ -1,6 +1,6 @@
 # FIX #1039 — `postcodes` Table (Tier 4 Architecture)
 
-**Issue:** [#1039 — Can we add a postcode for this?](https://github.com/dr5hn/the-countries-states-cities-database/issues/1039)
+**Issue:** [#1039 — Can we add a postcode for this?](https://github.com/dr5hn/countries-states-cities-database/issues/1039)
 **Scope:** New entity table for postal codes (Tier 4 from the roadmap).
 **Date:** 2026-04-25
 **Companion PR:** Country-level `postal_code_format`/`postal_code_regex` backfill (#1391).

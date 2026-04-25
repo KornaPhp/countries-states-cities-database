@@ -10,6 +10,27 @@ const fs = require('fs');
 const path = require('path');
 const { getEntityType, parseJsonFile, loadRepoData } = require('./utils');
 
+// Lazy per-country cities loader — cities live in contributions/cities/{ISO2}.json
+const cityCache = new Map();
+function loadCitiesForCountry(iso2) {
+  if (!iso2) return null;
+  const cc = iso2.toUpperCase();
+  if (cityCache.has(cc)) return cityCache.get(cc);
+  const filePath = path.join(process.cwd(), 'contributions', 'cities', `${cc}.json`);
+  if (!fs.existsSync(filePath)) {
+    cityCache.set(cc, null);
+    return null;
+  }
+  try {
+    const cities = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    cityCache.set(cc, cities);
+    return cities;
+  } catch {
+    cityCache.set(cc, null);
+    return null;
+  }
+}
+
 async function run() {
   const token = process.env.GITHUB_TOKEN;
   const octokit = github.getOctokit(token);
@@ -177,6 +198,34 @@ async function run() {
               errors.push(
                 `${prefix}: state_id ${record.state_id} ("${state.name}") belongs to country_id ${state.country_id}, not ${record.country_id}`
               );
+            }
+          }
+        }
+
+        // Validate city_id exists if provided (optional FK)
+        if (record.city_id != null && record.country_id) {
+          const country = countryById.get(Number(record.country_id));
+          if (country && country.iso2) {
+            const cities = loadCitiesForCountry(country.iso2);
+            if (cities) {
+              const city = cities.find((c) => Number(c.id) === Number(record.city_id));
+              if (!city) {
+                errors.push(
+                  `${prefix}: city_id ${record.city_id} does not exist in cities/${country.iso2}.json`
+                );
+              } else {
+                validCount++;
+                if (Number(city.country_id) !== Number(record.country_id)) {
+                  errors.push(
+                    `${prefix}: city_id ${record.city_id} ("${city.name}") belongs to country_id ${city.country_id}, not ${record.country_id}`
+                  );
+                }
+                if (record.state_id != null && Number(city.state_id) !== Number(record.state_id)) {
+                  errors.push(
+                    `${prefix}: city_id ${record.city_id} ("${city.name}") belongs to state_id ${city.state_id}, not declared state_id ${record.state_id}`
+                  );
+                }
+              }
             }
           }
         }
