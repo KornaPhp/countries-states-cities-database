@@ -151,6 +151,7 @@ jobs:
           echo "state_count=$(mysql -uroot -proot -e 'SELECT COUNT(*) FROM world.states;' -s)" >> $GITHUB_ENV
           echo "city_count=$(mysql -uroot -proot -e 'SELECT COUNT(*) FROM world.cities;' -s)" >> $GITHUB_ENV
           echo "postcode_count=$(mysql -uroot -proot -sN -e 'SELECT COUNT(*) FROM world.postcodes;' 2>/dev/null || echo 0)" >> $GITHUB_ENV
+          echo "postcode_country_count=$(mysql -uroot -proot -sN -e 'SELECT COUNT(DISTINCT country_code) FROM world.postcodes;' 2>/dev/null || echo 0)" >> $GITHUB_ENV
           echo "current_date=$(date +'%B %d, %Y')" >> $GITHUB_ENV
 
       - name: Composer Dependencies
@@ -435,6 +436,7 @@ jobs:
           sed -i "s/Total Countries : [0-9]* <br>/Total Countries : $country_count <br>/" README.md
           sed -i "s/Total States\/Regions\/Municipalities : [0-9]* <br>/Total States\/Regions\/Municipalities : $state_count <br>/" README.md
           sed -i "s/Total Cities\/Towns\/Districts : [0-9]* <br>/Total Cities\/Towns\/Districts : $city_count <br>/" README.md
+          sed -i "s/Total Postcodes : [0-9,]* ([0-9]* countries) <br>/Total Postcodes : $postcode_count ($postcode_country_count countries) <br>/" README.md
           sed -i "s/Last Updated On: .*$/Last Updated On: $current_date/" README.md
 
       - name: Create GitHub Release with exports
